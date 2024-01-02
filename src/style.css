@@ -15,10 +15,16 @@
     background-color: grey;
     width: calc(100% - 40px); 
     height: calc(100% - 40px); 
-    z-index: 100;
+    z-index: 0;
     overflow-y: auto;
     /* scroll-behavior: smooth; */
     
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
 }
 
 /* #region navbar*/
@@ -67,11 +73,7 @@
     border-left: 10px solid black;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    z-index: 0;
-}
+
 
 .fake-navbar {
     height: 70px;
@@ -86,6 +88,9 @@
     z-index: 100;
 }
 
+.active {
+    border-bottom: 4px solid black;
+}
 
 /* #endregion */
 /* #region landing page*/
@@ -231,18 +236,19 @@
 /* #endregion */
 /* #region 3rd page*/
 .content-section3 {
+    position: relative;
     display: flex;
     height: 900px;
-    background-color: navy;
+    width: 100%;
     justify-content: center;
 }
 
 .content-section3-inner {
     display: flex;
+    position: relative;
     flex-direction: column;
     width: 100%;
     margin: 140px 4% 210px 4%;
-    background-color: green;
 }
 
 .marquee {
@@ -254,7 +260,17 @@
     white-space: nowrap;
     overflow: hidden;
     border: 4px solid black;
+    align-items: center;
 
+}
+
+.marquee p {
+    position: absolute;
+    align-items: center;
+    padding: 0 5%;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
 }
 
 .grid-demo {
@@ -267,16 +283,44 @@
 
 .grid-items {
     display: flex;
+    color: white;
     height: 200px;
     width: 100%;
     min-width: 100px;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    border-radius: 15px;
+    background: linear-gradient(90deg, black 50%, white 50%);
+    background-size: 200% 200%;
+    background-position: left bottom;    border-radius: 15px;
     text-align: center;
     font-size: 1.7rem;
     font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;}
+
+.grid-items:hover {
+    color: black;
+    background-position: right bottom;
+    
+}
+
+.waves-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    z-index: 99;
+}
+
+.waves-container img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    min-width: 100px;
+    min-height: 5%;
+
 }
 
 /* #endregion */
